@@ -18,7 +18,7 @@ class Task(Base):
     __tablename__ = "tasks"
     id: Mapped[int] = mapped_column(primary_key=True)
     title: Mapped[str] = mapped_column(String(128))
-    completted: Mapped[bool] = mapped_column(False)    
+    completted: Mapped[bool] = mapped_column(default=False)    
     user: Mapped[int] = mapped_column(ForeignKey('users.id', ondelete='CASCADE'))
 
 async def init_db():
